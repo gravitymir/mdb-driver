@@ -1,6 +1,9 @@
 /**
  * @autor Andrey Sukhodeyeyv
  * @url https://docs.mongodb.com/drivers/node/compatibility
+ * @Nodejs v14.x.x 3.6
+ * @MongoDB 4.4 >= 3.6
+ * 
 */
 
 const { MongoClient } = require('mongodb');
@@ -36,7 +39,7 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
-  
+
   async listCollections({ dbName = this.dbName }) {
     const client = await this.connect();
     try {
@@ -222,3 +225,5 @@ class MongoDB extends MongoConnect {
     }
   }
 }
+
+let mongo = new MongoDB({});
