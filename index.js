@@ -36,6 +36,7 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
+  
   async listCollections({ dbName = this.dbName }) {
     const client = await this.connect();
     try {
@@ -46,6 +47,7 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
+
   async findOne({ dbName = this.dbName, collection, query, options }) {
     //https://docs.mongodb.com/drivers/node/usage-examples/findOne
     const client = await this.connect();
@@ -57,6 +59,7 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
+
   async find({ dbName = this.dbName, collection, query, options }) {
     //https://docs.mongodb.com/drivers/node/usage-examples/find
     const client = await this.connect();
@@ -68,6 +71,7 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
+
   async insertOne({ dbName = this.dbName, collection, document }) {
     //https://docs.mongodb.com/drivers/node/usage-examples/insertOne
     const client = await this.connect();
@@ -79,6 +83,7 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
+
   async insertMany({ dbName = this.dbName, collection, documents, options }) {
     //https://docs.mongodb.com/drivers/node/usage-examples/insertMany
     const client = await this.connect();
@@ -90,6 +95,7 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
+
   async updateOne({ dbName = this.dbName, collection, filter, update, options }) {
     //https://docs.mongodb.com/drivers/node/usage-examples/updateOne
     const client = await this.connect();
@@ -101,6 +107,7 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
+
   async updateMany({ dbName = this.dbName, collection, filter, update }) {
     //https://docs.mongodb.com/drivers/node/usage-examples/updateMany
     const client = await this.connect();
@@ -112,6 +119,7 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
+
   async replaceOne({ dbName = this.dbName, collection, query, replacement, options }) {
     //https://docs.mongodb.com/drivers/node/usage-examples/replaceOne
     const client = await this.connect();
@@ -123,7 +131,8 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
-  async deleteOne({ dbName = this.dbName, collection, query}) {
+
+  async deleteOne({ dbName = this.dbName, collection, query }) {
     //https://docs.mongodb.com/drivers/node/usage-examples/deleteOne
     const client = await this.connect();
     try {
@@ -134,7 +143,8 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
-  async deleteMany({ dbName = this.dbName, collection, query}) {
+
+  async deleteMany({ dbName = this.dbName, collection, query }) {
     //https://docs.mongodb.com/drivers/node/usage-examples/deleteOne
     const client = await this.connect();
     try {
@@ -145,7 +155,8 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
-  async estimatedDocumentCount({ dbName = this.dbName, collection}) {
+
+  async estimatedDocumentCount({ dbName = this.dbName, collection }) {
     //https://docs.mongodb.com/drivers/node/usage-examples/count
     const client = await this.connect();
     try {
@@ -156,7 +167,8 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
-  async countDocuments({ dbName = this.dbName, collection, query}) {
+
+  async countDocuments({ dbName = this.dbName, collection, query }) {
     //https://docs.mongodb.com/drivers/node/usage-examples/count
     const client = await this.connect();
     try {
@@ -167,7 +179,8 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
-  async distinct({ dbName = this.dbName, collection, field, query}) {
+
+  async distinct({ dbName = this.dbName, collection, field, query }) {
     //https://docs.mongodb.com/drivers/node/usage-examples/distinct
     const client = await this.connect();
     try {
@@ -178,7 +191,8 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
-  async command({ dbName = this.dbName, command}) {
+
+  async command({ dbName = this.dbName, command }) {
     //https://docs.mongodb.com/drivers/node/usage-examples/command
     const client = await this.connect();
     try {
@@ -189,12 +203,14 @@ class MongoDB extends MongoConnect {
       await client.close();
     }
   }
+
   async watch() {
     //method not implemented
     //https://docs.mongodb.com/drivers/node/usage-examples/changeStream
     return false;
   }
-  async bulkWrite({ dbName = this.dbName, commands}) {
+
+  async bulkWrite({ dbName = this.dbName, commands }) {
     //https://docs.mongodb.com/drivers/node/usage-examples/bulkWrite
     const client = await this.connect();
     try {
@@ -206,31 +222,3 @@ class MongoDB extends MongoConnect {
     }
   }
 }
-
-let mongo = new MongoDB({});
-
-(async function () {
-
-  console.log(await mongo.listDatabases());
-  console.log(await mongo.listDatabases());
-  /*
-  console.log(await mongo.insertOne({
-    dbName: 'main',
-    collection: 'test_first',
-    document: {
-      _id: 7,
-      name: 'Роман',
-      phone: 380989897777,
-      age: 41,
-      test_array: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-      test_obj: {
-        a: 'access',
-        b: 'broke',
-        c: 'cansel'
-      }
-    }
-  }));
-  */
-
-})()
-
