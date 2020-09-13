@@ -1,20 +1,19 @@
 /**
- * @autor Andrey Sukhodeyeyv
+ * @autor Andrey Suhodeyeyv
  * @url https://docs.mongodb.com/drivers/node/compatibility
+ * @docs https://docs.mongodb.com/manual/reference/operator/query/
  * @Nodejs v14.x.x 3.6
  * @MongoDB 4.4 >= 3.6
- * 
 */
 
 const { MongoClient } = require('mongodb');
-
 const MONGODB_URL = process.env.MONGODB_DEFAULT_URL || 'mongodb://localhost:27017';
 const MONGODB_DEFAULT_DBNAME = process.env.MONGODB_DEFAULT_DBNAME || 'main';
 
 class MongoConnect {
   constructor({ url, dbName }) {
     this.url = url ?? MONGODB_URL;
-    this.dbName = dbName ?? 'main';
+    this.dbName = dbName ?? MONGODB_DEFAULT_DBNAME;
     this.client = MongoClient;
   }
 
@@ -67,7 +66,7 @@ class MongoDB extends MongoConnect {
     //https://docs.mongodb.com/drivers/node/usage-examples/find
     const client = await this.connect();
     try {
-      return await client.db(dbName).collection(collection).find(query, options);
+      return await client.db(dbName).collection(collection).find(query, options).toArray();
     } catch (e) {
       console.error(e);
     } finally {
@@ -225,5 +224,3 @@ class MongoDB extends MongoConnect {
     }
   }
 }
-
-let mongo = new MongoDB({});
