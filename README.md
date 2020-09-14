@@ -31,7 +31,6 @@ let listCollections = db.listCollections('db_name');
     console.log(await listCollections);
 })();
 ```
-
 ### findOne
 
 ``` js
@@ -59,7 +58,6 @@ let findOneResult = db.findOne({
 ```
 
 ### find
-
 ``` js
 let resultArray = db.find({
     dbName: 'test',
@@ -87,7 +85,6 @@ let resultArray = db.find({
 ```
 
 ### insertOne
-
 ``` js
 let insertOneResult = db.insertOne({
     dbName: 'test',
@@ -103,7 +100,6 @@ let insertOneResult = db.insertOne({
 ```
 
 ### insertMany
-
 ``` js
 let insertMany = db.insertMany({
     dbName: 'test',
@@ -131,7 +127,6 @@ let insertMany = db.insertMany({
 ```
 
 ### updateOne
-
 ``` js
 let updateOneResult = db.updateOne({
     dbName: 'test',
@@ -152,7 +147,6 @@ let updateOneResult = db.updateOne({
 ```
 
 ### updateMany
-
 ``` js
 let updateManyResult = db.updateMany({
     dbName: 'test',
@@ -169,7 +163,6 @@ let updateManyResult = db.updateMany({
 ```
 
 ### replaceOne
-
 ``` js
 let replaceOneResult = db.replaceOne({
     dbName: 'test',
@@ -188,7 +181,6 @@ let replaceOneResult = db.replaceOne({
 ```
 
 ### deleteOne
-
 ``` js
 let deleteOneResult = db.deleteOne({
     dbName: 'test',
@@ -202,7 +194,6 @@ let deleteOneResult = db.deleteOne({
 ```
 
 ### deleteMany
-
 ``` js
 let deleteManyResult = db.deleteMany({
     dbName: 'test',
@@ -216,7 +207,6 @@ let deleteManyResult = db.deleteMany({
 ```
 
 ### other
-
 ``` js
 let res;
 res = estimatedDocumentCount({

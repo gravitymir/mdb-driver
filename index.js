@@ -13,6 +13,7 @@ class MongoConnect {
   constructor(url) {
     this.url = url ?? MONGODB_URL;
     this.client = MongoClient;
+    console.log(this.url)
   }
 
   async connect() {
@@ -73,6 +74,7 @@ class MongoDB extends MongoConnect {
   }
 
   async insertOne({ dbName, collection, document }) {
+    console.log(this.url)
     //https://docs.mongodb.com/drivers/node/usage-examples/insertOne
     const client = await this.connect();
     try {
