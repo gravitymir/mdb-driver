@@ -1,6 +1,6 @@
 {
   "name": "mdb-driver",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "async await mongodb driver",
   "main": "index.js",
   "scripts": {
