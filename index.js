@@ -145,7 +145,7 @@ class MongoDB extends MongoConnect {
   }
 
   async deleteMany({ dbName, collection, query }) {
-    //https://docs.mongodb.com/drivers/node/usage-examples/deleteOne
+    //https://docs.mongodb.com/drivers/node/usage-examples/deleteMany
     const client = await this.connect();
     try {
       return await client.db(dbName).collection(collection).deleteMany(query);
@@ -223,4 +223,4 @@ class MongoDB extends MongoConnect {
   }
 }
 
-module.exports = new MongoDB();
+module.exports = MongoDB;
