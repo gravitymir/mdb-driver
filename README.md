@@ -17,8 +17,8 @@ const Mdb = require('mdb-driver');
 const db = new Mdb('mongodb://localhost:27017');
 
 (async () => {
-	let dbs = db.listDatabases();
-	console.log(await dbs);
+    let dbs = db.listDatabases();
+    console.log(await dbs);
 })();
 ```
 
@@ -28,7 +28,7 @@ const db = new Mdb('mongodb://localhost:27017');
 let listCollections = db.listCollections('db_name');
 
 (async () => {
-	console.log(await listCollections);
+    console.log(await listCollections);
 })();
 ```
 
@@ -36,25 +36,25 @@ let listCollections = db.listCollections('db_name');
 
 ``` js
 let findOneResult = db.findOne({
-	dbName: 'test',
-	collection: 'users',
-	query: {
-		title: "Username"
-	},
-	options: {
-		sort: {
-			age: -1
-		},
-		projection: {
-			_id: 0,
-			age: 1,
-			phone: 1
-		},
-	}
+    dbName: 'test',
+    collection: 'users',
+    query: {
+        title: "Username"
+    },
+    options: {
+        sort: {
+            age: -1
+        },
+        projection: {
+            _id: 0,
+            age: 1,
+            phone: 1
+        },
+    }
 });
 
 (async () => {
-	console.log(await findOneResult);
+    console.log(await findOneResult);
 })();
 ```
 
@@ -62,27 +62,27 @@ let findOneResult = db.findOne({
 
 ``` js
 let resultArray = db.find({
-	dbName: 'test',
-	collection: 'users',
-	query: {
-		age: {
-			$lt: 15
-		}
-	},
-	options: {
-		sort: {
-			name: 1
-		},
-		projection: {
-			_id: 0,
-			name: 1,
-			phone: 1
-		},
-	}
+    dbName: 'test',
+    collection: 'users',
+    query: {
+        age: {
+            $lt: 15
+        }
+    },
+    options: {
+        sort: {
+            name: 1
+        },
+        projection: {
+            _id: 0,
+            name: 1,
+            phone: 1
+        },
+    }
 });
 
 (async () => {
-	console.log(await resultArray);
+    console.log(await resultArray);
 })();
 ```
 
@@ -90,15 +90,15 @@ let resultArray = db.find({
 
 ``` js
 let insertOneResult = db.insertOne({
-	dbName: 'test',
-	collection: 'users',
-	document: {
-		{
-			name: 'Bob',
-			age: 31,
-			phone: 6500000000
-		}
-	}
+    dbName: 'test',
+    collection: 'users',
+    document: {
+        {
+            name: 'Bob',
+            age: 31,
+            phone: 6500000000
+        }
+    }
 })
 ```
 
@@ -106,27 +106,27 @@ let insertOneResult = db.insertOne({
 
 ``` js
 let insertMany = db.insertMany({
-	dbName: 'test',
-	collection: 'users',
-	documents: [{
-			name: 'Nikoly',
-			age: 27,
-			phone: 6500000009
-		},
-		{
-			name: 'Mark',
-			age: 55,
-			phone: 6500000007
-		},
-		{
-			name: 'Givi',
-			age: 62,
-			phone: 6500000005
-		}
-	],
-	options: {
-			ordered: true
-	}
+    dbName: 'test',
+    collection: 'users',
+    documents: [{
+            name: 'Nikoly',
+            age: 27,
+            phone: 6500000009
+        },
+        {
+            name: 'Mark',
+            age: 55,
+            phone: 6500000007
+        },
+        {
+            name: 'Givi',
+            age: 62,
+            phone: 6500000005
+        }
+    ],
+    options: {
+        ordered: true
+    }
 })
 ```
 
@@ -134,19 +134,20 @@ let insertMany = db.insertMany({
 
 ``` js
 let updateOneResult = db.updateOne({
-	dbName: 'test',
-	collection: 'users',
-	filter: {
-		name: 'Givi'
-	},
-	update: {
-		$set: {
-			age: 63
-	}},
-	options: {
-		// this option instructs the method to create a document if no documents match the filter
-		upsert: false
-	}
+    dbName: 'test',
+    collection: 'users',
+    filter: {
+        name: 'Givi'
+    },
+    update: {
+        $set: {
+            age: 63
+        }
+    },
+    options: {
+        // this option instructs the method to create a document if no documents match the filter
+        upsert: false
+    }
 })
 ```
 
@@ -154,15 +155,16 @@ let updateOneResult = db.updateOne({
 
 ``` js
 let updateManyResult = db.updateMany({
-	dbName: 'test',
-	collection: 'users',
-	filter: {
-		birthday: toDay
-	},
-	update: {
-		$inc: {//https://docs.mongodb.com/manual/reference/operator/update-field/
-			age: 1
-	}}
+    dbName: 'test',
+    collection: 'users',
+    filter: {
+        birthday: toDay
+    },
+    update: {
+        $inc: { //https://docs.mongodb.com/manual/reference/operator/update-field/
+            age: 1
+        }
+    }
 })
 ```
 
@@ -170,65 +172,73 @@ let updateManyResult = db.updateMany({
 
 ``` js
 let replaceOneResult = db.replaceOne({
-	dbName: 'test',
-	collection: 'users',
-	query: {
-		name: 'Bob'
-	},
-	replacement: {
-		phone: 7500000000
-	},
-	options: {
-		// create a document if no documents match the query
-		upsert: true,
-	}
+    dbName: 'test',
+    collection: 'users',
+    query: {
+        name: 'Bob'
+    },
+    replacement: {
+        phone: 7500000000
+    },
+    options: {
+        // create a document if no documents match the query
+        upsert: true,
+    }
 })
 ```
 
 ### deleteOne
+
 ``` js
 let deleteOneResult = db.deleteOne({
-	dbName: 'test',
-	collection: 'users',
-	query: {
-		phone: {
-			$type: "string"
-		}
-	}
+    dbName: 'test',
+    collection: 'users',
+    query: {
+        phone: {
+            $type: "string"
+        }
+    }
 })
 ```
 
 ### deleteMany
+
 ``` js
 let deleteManyResult = db.deleteMany({
-	dbName: 'test',
-	collection: 'users',
-	query: {
-		age: {
-			$gte: 80 //https://docs.mongodb.com/manual/reference/operator/query-comparison/
-		}
-	}
+    dbName: 'test',
+    collection: 'users',
+    query: {
+        age: {
+            $gte: 80 //https://docs.mongodb.com/manual/reference/operator/query-comparison/
+        }
+    }
 })
 ```
 
 ### other
+
 ``` js
 let res;
-res = estimatedDocumentCount({ 
-	dbName: 'test',
-	collection: 'users'
+res = estimatedDocumentCount({
+    dbName: 'test',
+    collection: 'users'
 });
 
-res = countDocuments({ 
-	dbName: 'test',
-	collection: 'users', 
-	query: {
-		age: {
-			$in: [18, 65]
-		}
-	}
+res = countDocuments({
+    dbName: 'test',
+    collection: 'users',
+    query: {
+        age: {
+            $in: [18, 65]
+        }
+    }
 });
 
-db.distinct({ dbName, collection, field, query })
+db.distinct({
+    dbName,
+    collection,
+    field,
+    query
+})
 //https://docs.mongodb.com/drivers/node/usage-examples/distinct
 ```
