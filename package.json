@@ -1,0 +1,28 @@
+{
+  "name": "mdb-driver",
+  "version": "0.0.2",
+  "description": "async await mongodb driver",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gravitymir/mdb-driver.git"
+  },
+  "keywords": [
+    "mongodb",
+    "async",
+    "await",
+    "database"
+  ],
+  "author": "Andrey Sukhodeev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gravitymir/mdb-driver/issues"
+  },
+  "homepage": "https://github.com/gravitymir/mdb-driver#readme",
+  "dependencies": {
+    "mongodb": "^3.6.2"
+  }
+}

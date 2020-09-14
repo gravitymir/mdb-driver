@@ -234,11 +234,10 @@ res = countDocuments({
     }
 });
 
-db.distinct({
+db.distinct({//https://docs.mongodb.com/drivers/node/usage-examples/distinct
     dbName,
     collection,
     field,
     query
 })
-//https://docs.mongodb.com/drivers/node/usage-examples/distinct
 ```
